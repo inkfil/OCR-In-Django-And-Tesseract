@@ -1,3 +1,9 @@
 django
 numpy
 nltk
+pytesseract-0.3.8
+wand-0.6.7
+nltk-3.6.7
+regex-2022.1.18
+tqdm-4.62.3
+networkx-2.5.1

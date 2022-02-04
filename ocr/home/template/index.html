@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>OCR | Optical Content Recognition.</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<!-- code highlighting -->
+	<script
+		src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css"
+		defer=""></script>
+
+	<header>
+		<nav class="navbar navbar-default bg-dark fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<h1><a class="navbar-brand" href="{% url 'filhome' %}">OCR | Optical Content Recognition.</a></h1>
+				</div>
+				<ul class="nav ">
+					| &nbsp<li><a href="{% url 'showcode' %}">ShowCode</a></li>&nbsp | &nbsp
+				</ul>
+			</div>
+		</nav>
+	</header>
+</head>
+
+<body class="container-fluid" style="margin-top:80px">
+
+	{% block content %}
+
+	{% endblock %}
+
+	<div class="navbar-dark">
+		<footer class="page-footer font-small blue pt-4">
+			<div class="footer-copyright text-center py-3">© 2021 Copyright: Inkfil (Ronak Jain)</div>
+		</footer>
+	</div>
+
+</body>
+
+</html>

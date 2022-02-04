@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+{% block content %}
+<script type="text/javascript">
+var url="https://stackoverflow.com/questions/4234589/validation-of-file-extension-before-uploading-file"
+
+var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png", ".pdf", ".doc", ".txt"];    
+function Validate(oForm) {
+    var arrInputs = oForm.getElementsByTagName("input");
+    for (var i = 0; i < arrInputs.length; i++) {
+        var oInput = arrInputs[i];
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        break;
+                    }
+                }
+                
+                if (!blnValid) {
+                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    return false;
+                }
+            }
+        }
+    }
+  
+    return true;
+}
+
+</script>
+<div class="container">
+<h2>this is sample readPdfTemplate</h2>
+#Pdf upload with validation
+<form method = "post" onsubmit="return Validate(this);" enctype="multipart/form-data">
+{% csrf_token %}
+  <input type="file" name="pdf" accept="application/pdf"/>
+  </br>
+  <input type="submit"/>
+</form>
+</div>
+
+<div class="container-fluid" style="margin-top:80px">
+<div class="container" style="100%">
+  <div class="row">
+      <div class="container">
+  		<div class="card">
+    		<!--<img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">-->
+    		<div class="card-body">
+      		<h4 class="card-title">Orignal Text.</h4>
+      		<p class="card-text">{{orignaltext}}.</p>
+    		</div>
+    	</div>
+    </div>&nbsp
+      <div class="container">
+  		<div class="card">
+    		<!--<img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">-->
+    		<div class="card-body">
+      		<h4 class="card-title">Summarized Text.</h4>
+      		<p class="card-text">{{summarizedtext}}.</p>
+    		</div>
+    	</div>
+    </div>
+   </div>
+</div>
+
+{% endblock %}	
